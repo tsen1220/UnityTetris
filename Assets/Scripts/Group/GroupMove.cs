@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Tag;
 
 public class GroupMove : MonoBehaviour
 {
 
-
     public Vector3 rotationPoint;
 
     private float fallTime = 0.8f;
 
+    private Text ScoreText;
     private Spawner spawner;
 
     private float Timer = 0f;
@@ -21,12 +22,13 @@ public class GroupMove : MonoBehaviour
 
     private static Transform[,] Grid = new Transform[height, width];
 
+    private static int LineCount=0;
+
     void Awake()
     {
         spawner = GameObject.FindWithTag(Tag.Spawner.__Spawner).GetComponent<Spawner>();
-
-        
-       
+        ScoreText= GameObject.FindWithTag(Tag.UI.Score).GetComponent<Text>();
+     
     }
 
 
@@ -35,8 +37,6 @@ public class GroupMove : MonoBehaviour
           groupFall(fallTime);
           Move();
           checkLines();
-
-
     }
 
 
@@ -269,6 +269,7 @@ public class GroupMove : MonoBehaviour
             {
                 deleteLine(i);
                 rowDown(i);
+                GetScore();
             }
         }
     }
@@ -313,6 +314,13 @@ public class GroupMove : MonoBehaviour
             }
         }
    
+    }
+
+    void GetScore()
+    {
+        LineCount++;
+        string Line = LineCount.ToString();
+        ScoreText.text = Line;
     }
 
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Tag
 {
     public class Group
@@ -18,6 +19,23 @@ namespace Tag
     public class Spawner
     {
         public const string __Spawner = "Spawner";
+    }
+
+    public class Frame
+    {
+        public const string __Frame = "Frame";
+        public const string fLine = "fLine";
+    }
+
+    public class UI
+    {
+        public const string Score = "Score";
+
+    }
+
+    public class NextGroup
+    {
+        public const string Next = "Next";
     }
    
 }

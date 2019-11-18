@@ -14,6 +14,15 @@ TagManager:
   - GroupI
   - fLine
   - Spawner
+  - Score
+  - I
+  - J
+  - L
+  - O
+  - S
+  - T
+  - Z
+  - Next
   layers:
   - Default
   - TransparentFX
