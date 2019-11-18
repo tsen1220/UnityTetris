@@ -8,7 +8,7 @@ public class Retry : MonoBehaviour
 
     public void RetryTheGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
   
 }

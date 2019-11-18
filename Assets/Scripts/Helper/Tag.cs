@@ -30,6 +30,7 @@ namespace Tag
     public class UI
     {
         public const string Score = "Score";
+        public const string LoseMsg = "LoseMsg";
 
     }
 

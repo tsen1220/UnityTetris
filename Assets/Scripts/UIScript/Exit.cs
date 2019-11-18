@@ -7,6 +7,6 @@ public class Exit : MonoBehaviour
 {
     public void ExitTheGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }

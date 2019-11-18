@@ -12,6 +12,7 @@ public class GroupMove : MonoBehaviour
     private float fallTime = 0.8f;
 
     private Text ScoreText;
+    private Text LoseMsg;
     private Spawner spawner;
 
     private float Timer = 0f;
@@ -24,11 +25,13 @@ public class GroupMove : MonoBehaviour
 
     private static int LineCount=0;
 
+
     void Awake()
     {
         spawner = GameObject.FindWithTag(Tag.Spawner.__Spawner).GetComponent<Spawner>();
         ScoreText= GameObject.FindWithTag(Tag.UI.Score).GetComponent<Text>();
-     
+        LoseMsg = GameObject.FindWithTag(Tag.UI.LoseMsg).GetComponent<Text>();
+
     }
 
 
@@ -37,6 +40,9 @@ public class GroupMove : MonoBehaviour
           groupFall(fallTime);
           Move();
           checkLines();
+        LoseMessage();
+
+
     }
 
 
@@ -257,6 +263,8 @@ public class GroupMove : MonoBehaviour
             int Xposition = Mathf.RoundToInt(children.transform.position.x-0.5f+5);
  
           Grid[Yposition, Xposition]=children;
+
+           
         }
     }
 
@@ -321,6 +329,31 @@ public class GroupMove : MonoBehaviour
         LineCount++;
         string Line = LineCount.ToString();
         ScoreText.text = Line;
+    }
+
+    bool isFailure()
+    {
+        
+        for(int i =0; i < width; i++)
+        {
+           if(Grid[19,i] != null)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    void LoseMessage()
+    {
+        if (isFailure())
+        {
+            LoseMsg.text = "You Lose!";
+            spawner.enabled = false;
+            enabled = false;
+
+        }
     }
 
 }

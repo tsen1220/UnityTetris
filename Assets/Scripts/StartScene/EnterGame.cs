@@ -7,6 +7,6 @@ public class EnterGame : MonoBehaviour
 {
     public void EnterTheGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
