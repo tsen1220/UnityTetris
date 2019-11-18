@@ -3,6 +3,8 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
+/[Ll]ogs/
+/[Pp]ackages/
  
 # unity ignore file
 *.csproj
@@ -12,6 +14,9 @@
 *.userprefs
 *.meta
 *.tmp
+*.htm
+
  
 # need include the meta of file
 !*.*.meta
+
