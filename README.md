@@ -12,6 +12,10 @@ This is Unity Project, you need to build this game by Unity.
 
 此為 Unity 專案，需要使用 Unity 建構才可遊玩。
 
+If you like this, please give me a star. Thank you !
+
+如果你喜歡，請給我一顆星，我會很感謝你。
+
 <img src='https://raw.githubusercontent.com/tsen1220/UnityTetris/master/IMG/Introduction.jpg' alt="">
 
 # Controls/操作說明:
