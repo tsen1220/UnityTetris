@@ -23,6 +23,7 @@ TagManager:
   - T
   - Z
   - Next
+  - Button
   layers:
   - Default
   - TransparentFX

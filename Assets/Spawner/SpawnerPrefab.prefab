@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2665495719231776941}
   - component: {fileID: 6896630175072490678}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: SpawnerPrefab
   m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213174803895733940}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5, y: 8.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -51,3 +51,11 @@ MonoBehaviour:
   - {fileID: 7247935732222486803, guid: 0108fba5a525c1e419508937a116373c, type: 3}
   - {fileID: 8979128122110576817, guid: 9520b96288ff25243bbb504dbefeabee, type: 3}
   - {fileID: 6650732857477274070, guid: bb203290d6af7f644a7a032d4ce9bf1f, type: 3}
+  staticGroup:
+  - {fileID: 4901946023547197492, guid: dd79e603af4d3814b8fc7d066b0751c4, type: 3}
+  - {fileID: 1265532735320587044, guid: 7d59a37f6aa8412469a994cc9ff33e20, type: 3}
+  - {fileID: 2287526362322696439, guid: f54f874a96a4f294986cb6b917373dc6, type: 3}
+  - {fileID: 3892731096809717771, guid: d69b88c251d0f0d4fb5b6eb4a8725fcb, type: 3}
+  - {fileID: 7247935732222486803, guid: bf4b9d4272f322849988a2f37d35ea02, type: 3}
+  - {fileID: 8979128122110576817, guid: 54e10f74b01ecda4ca2d0c3befed936b, type: 3}
+  - {fileID: 6650732857477274070, guid: 2a60775591d627c4f94d113cf2d1f694, type: 3}
