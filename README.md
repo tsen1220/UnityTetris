@@ -1,20 +1,24 @@
 # Unity Tetris/俄羅斯方塊
 
-Use Unity to build Tetris!
+## English
 
-使用 Unity 重現經典的俄羅斯方塊遊戲。
+Use Unity to build Tetris!
 
 I like to play Tetris. So I decide to create Tetris by myself.
 
-因為我喜歡俄羅斯方塊，故想要以自己的手重現。
-
 This is Unity Project, you need to build this game by Unity.
-
-此為 Unity 專案，需要使用 Unity 建構才可遊玩。
 
 If you like this, please give me a star. Thank you !
 
-如果你喜歡，請給我一顆星，我會很感謝你。
+## 中文
+
+使用 Unity 重現經典的俄羅斯方塊遊戲。
+
+因為我喜歡俄羅斯方塊，故想要以自己的手重現。
+
+此為 Unity 專案，需要使用 Unity 建構才可遊玩。
+
+如果你喜歡，請給我一顆星，感謝你。
 
 <img src='https://raw.githubusercontent.com/tsen1220/UnityTetris/master/IMG/Introduction.jpg' alt="">
 
@@ -30,6 +34,7 @@ Controls:
 | RightArrow | Group move to right     |
 | Z          | Rotate clockwise        |
 
+
 操作說明:
 
 | 按鍵   | Controls   |
@@ -39,7 +44,3 @@ Controls:
 | 左箭頭 | 方塊向左   |
 | 右箭頭 | 方塊向右   |
 | Z      | 順時鐘旋轉 |
-
-If you click Exit , you will go back the start page.
-
-Exit 按鍵會讓你返回至遊戲開始頁面。
