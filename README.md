@@ -8,8 +8,6 @@ I like to play Tetris. So I decide to create Tetris by myself.
 
 This is Unity Project, you need to build this game by Unity.
 
-If you like this, please give me a star. Thank you !
-
 ## 中文
 
 使用 Unity 重現經典的俄羅斯方塊遊戲。
@@ -17,8 +15,6 @@ If you like this, please give me a star. Thank you !
 因為我喜歡俄羅斯方塊，故想要以自己的手重現。
 
 此為 Unity 專案，需要使用 Unity 建構才可遊玩。
-
-如果你喜歡，請給我一顆星，感謝你。
 
 <img src='https://raw.githubusercontent.com/tsen1220/UnityTetris/master/IMG/Introduction.jpg' alt="">
 
