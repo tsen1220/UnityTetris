@@ -10,18 +10,12 @@ public class FrameLine : MonoBehaviour
 
     private GameObject fLine;
 
-
-
-    void Awake()
+    private void Awake()
     {
-
-
-    
         for (int i = 0; i <= 20; i++)
         {
             Instantiate(HorizontalLine, transform.position, Quaternion.identity);
             transform.position = transform.position + new Vector3(0, 1, 0);
-            
         }
 
         transform.position = new Vector3(-5, 0, 0);
@@ -30,11 +24,6 @@ public class FrameLine : MonoBehaviour
         {
             Instantiate(VerticalLine, transform.position, Quaternion.identity);
             transform.position = transform.position + new Vector3(1, 0, 0);
-           
         }
-
-       
-
-        
     }
 }

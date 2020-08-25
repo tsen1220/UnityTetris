@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
 
     private static GameObject staticNextGroup;
 
-    void Awake()
+    private void Awake()
     {
         GroupPoolCreate();
 
@@ -45,39 +45,43 @@ public class Spawner : MonoBehaviour
         {
             Destroy(staticNextGroup);
             staticNextGroup = Instantiate(staticGroup[0], NextGroupPosition, Quaternion.identity);
-            
         }
+
         if (NextGroup.CompareTag(Tag.Group.GroupJ))
         {
             Destroy(staticNextGroup);
             staticNextGroup = Instantiate(staticGroup[1], NextGroupPosition, Quaternion.identity);
         }
+
         if (NextGroup.CompareTag(Tag.Group.GroupL))
         {
             Destroy(staticNextGroup);
             staticNextGroup = Instantiate(staticGroup[2], NextGroupPosition, Quaternion.identity);
         }
+
         if (NextGroup.CompareTag(Tag.Group.GroupS))
         {
             Destroy(staticNextGroup);
             staticNextGroup = Instantiate(staticGroup[3], NextGroupPosition, Quaternion.identity);
         }
+
         if (NextGroup.CompareTag(Tag.Group.GroupT))
         {
             Destroy(staticNextGroup);
             staticNextGroup = Instantiate(staticGroup[4], NextGroupPosition, Quaternion.identity);
         }
+
         if (NextGroup.CompareTag(Tag.Group.GroupZ))
         {
             Destroy(staticNextGroup);
             staticNextGroup = Instantiate(staticGroup[5], NextGroupPosition, Quaternion.identity);
         }
+
         if (NextGroup.CompareTag(Tag.Group.GroupO))
         {
             Destroy(staticNextGroup);
             staticNextGroup = Instantiate(staticGroup[6], NextGroupPosition, Quaternion.identity);
         }
-
 
         Vector3 OriginPosition = transform.position;
 
@@ -93,18 +97,13 @@ public class Spawner : MonoBehaviour
         }
 
         WaitGroupList.Enqueue(Group[Random.Range(0, Group.Length)]);
-
-
     }
 
-    void GroupPoolCreate()
+    private void GroupPoolCreate()
     {
         for (int i = 0; i < 5; i++)
         {
             WaitGroupList.Enqueue(Group[Random.Range(0, Group.Length)]);
         }
     }
-
-
-
 }

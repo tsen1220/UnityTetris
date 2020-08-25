@@ -25,8 +25,7 @@ public class GroupMove : MonoBehaviour
 
     private static int LineCount=0;
 
-
-    void Awake()
+    private void Awake()
     {
         spawner = GameObject.FindWithTag(Tag.Spawner.__Spawner).GetComponent<Spawner>();
         ScoreText= GameObject.FindWithTag(Tag.UI.Score).GetComponent<Text>();
@@ -34,21 +33,16 @@ public class GroupMove : MonoBehaviour
 
     }
 
-
-    void Update()
+    private void Update()
     {
-          groupFall(fallTime);
-          Move();
-          checkLines();
+        groupFall(fallTime);
+        Move();
+        checkLines();
         LoseMessage();
-
-
     }
 
-
-    void groupFall(float TheFallTime)
+    private void groupFall(float TheFallTime)
     {
-   
         Timer += Input.GetKey(KeyCode.DownArrow)? Time.deltaTime+0.7f : Time.deltaTime;
         if (Timer > TheFallTime)
         {
@@ -57,18 +51,11 @@ public class GroupMove : MonoBehaviour
                 Vector3 fall = new Vector3(0, -1, 0);
                 transform.position += fall;
                 Timer = 0f;
-
             }
-       
-
         }
-
-
     }
 
-
-
-    void Move()
+    private void Move()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -79,9 +66,7 @@ public class GroupMove : MonoBehaviour
                     Vector3 right = new Vector3(1, 0, 0);
                     transform.position += right;
                 }
-
             }
-
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -93,60 +78,36 @@ public class GroupMove : MonoBehaviour
                     transform.position += left;
                 }
             }
-
-
-    }
+        }
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (FallBorder())
             {
-
-          
-                    if (isValidRotate(true) && isValidRotate(false) )
-                    {
-
-
-                        transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
-
-
-                    }
-                
-
-
-     
+                if (isValidRotate(true) && isValidRotate(false) )
+                {
+                    transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
+                }     
             }
         }
-
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
             if (FallBorder())
             {
-
-          
-                    if (isValidRotate(false) && isValidRotate(true))
-                    {
-
-
-                        transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, -1), 90);
-
-
-                    }
-                
-
-
-
+                if (isValidRotate(false) && isValidRotate(true))
+                {
+                    transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, -1), 90);
+                }
             }
         }
-
     }
 
 
     // direct: left:false ; right:true  ; down:false ; up:true
 
        // 起始為 0 ;
-    bool isValidMove(bool direction)
+    private bool isValidMove(bool direction)
     {
         if (direction)
         {
@@ -155,15 +116,15 @@ public class GroupMove : MonoBehaviour
                 int Yposition = Mathf.RoundToInt(children.transform.position.y + height/2 - Margin);
                 int Xposition = Mathf.RoundToInt(children.transform.position.x +width/2 - Margin +1);
   
-                if (Xposition < 0 || Xposition > width-1 )
+                if (Xposition < 0 || Xposition > width - 1)
                 {
-              
                     return false;
                 }
-                        if (Grid[Yposition, Xposition] != null)
-                        {
-                            return false;
-                            } 
+
+                if (Grid[Yposition, Xposition] != null)
+                {
+                    return false;
+                } 
             }
             return true;
         }
@@ -178,41 +139,36 @@ public class GroupMove : MonoBehaviour
                        return false;
                     
                 }
-                       if (Grid[Yposition, Xposition] != null)
-                        {
-                            return false;
-                            } 
+
+                if (Grid[Yposition, Xposition] != null)
+                {
+                    return false;
+                } 
             }
             return true;
         }
-
-     
-
     }
 
-
-
-    bool isValidRotate(bool direction)
+    private bool isValidRotate(bool direction)
     {
         foreach (Transform children in transform)
         {
-            int Yposition = Mathf.RoundToInt(children.transform.position.y + height/2 -Margin);
+            int Yposition = Mathf.RoundToInt(children.transform.position.y + height / 2 - Margin);
             int Xposition;
             if (direction)
             {
-                Xposition = Mathf.RoundToInt(children.transform.position.x - Margin + width/2 +1);
+                Xposition = Mathf.RoundToInt(children.transform.position.x - Margin + width / 2 + 1);
             }
             else
             {
-                Xposition = Mathf.RoundToInt(children.transform.position.x - Margin + width / 2-1);
+                Xposition = Mathf.RoundToInt(children.transform.position.x - Margin + width / 2 - 1);
             }
-         
 
-            if (Xposition < 0 || Xposition > width-1)
+            if (Xposition < 0 || Xposition > width - 1)
             {
-
                 return false;
             }
+
             if (Grid[Yposition, Xposition] != null)
             {
                 return false;
@@ -226,18 +182,15 @@ public class GroupMove : MonoBehaviour
     {
         foreach (Transform children in transform)
         {
-            int Yposition = Mathf.RoundToInt(children.transform.position.y - Margin + height/2-1 );
-            int Xposition = Mathf.RoundToInt(children.transform.position.x - Margin + width/2);
+            int Yposition = Mathf.RoundToInt(children.transform.position.y - Margin + height / 2 - 1);
+            int Xposition = Mathf.RoundToInt(children.transform.position.x - Margin + width / 2);
 
-            if (Yposition < 0 || Yposition > height-1)
+            if (Yposition < 0 || Yposition > height - 1)
             {
-             
-         
                 addToGrid();
                 spawner.CreateGroup();
                 enabled = false;
                 return false;
-
             }
 
            if (Grid[Yposition, Xposition] != null)
@@ -251,27 +204,23 @@ public class GroupMove : MonoBehaviour
                 } 
         }
         return true;
-
     }
 
 
-    void addToGrid()
+    private void addToGrid()
     {
         foreach (Transform children in transform)
         {
-           int Yposition = Mathf.RoundToInt(children.transform.position.y+10-0.5f);
-            int Xposition = Mathf.RoundToInt(children.transform.position.x-0.5f+5);
+            int Yposition = Mathf.RoundToInt(children.transform.position.y + 10 - 0.5f);
+            int Xposition = Mathf.RoundToInt(children.transform.position.x - 0.5f + 5);
  
-          Grid[Yposition, Xposition]=children;
-
-           
+            Grid[Yposition, Xposition]=children;
         }
     }
 
-    void checkLines()
+    private void checkLines()
     {
-       
-        for(int i = 0; i <height; i++)
+        for (int i = 0; i <height; i++)
         {
             if (oneLine(i))
             {
@@ -283,12 +232,12 @@ public class GroupMove : MonoBehaviour
     }
 
 
-    bool oneLine(int i)
+    private bool oneLine(int i)
     {
-        for(int j = 0; j < width; j++)
+        for (int j = 0; j < width; j++)
         {
    
-            if(Grid[i,j] == null)
+            if (Grid[i,j] == null)
             {
                 return false;
             }
@@ -296,23 +245,22 @@ public class GroupMove : MonoBehaviour
         return true;
     }
 
-    void deleteLine(int i)
+    private void deleteLine(int i)
     {
         for (int j = 0; j < width; j++)
         {
             Destroy(Grid[i, j].gameObject);
             Grid[i, j] = null;
         }
-    
     }
 
-    void rowDown(int i)
+    private void rowDown(int i)
     {
-        for(int y = i; y < height; y++)
+        for (int y = i; y < height; y++)
         {
             for (int j = 0; j < width; j++)
             {
-              if(Grid[y,j] != null)
+              if (Grid[y,j] != null)
                 {
                     Grid[y - 1, j] = Grid[y, j];
                     Grid[y, j] = null;
@@ -321,22 +269,21 @@ public class GroupMove : MonoBehaviour
                 }
             }
         }
-   
     }
 
-    void GetScore()
+    private void GetScore()
     {
         LineCount++;
         string Line = LineCount.ToString();
         ScoreText.text = Line;
     }
 
-    bool isFailure()
+    private bool isFailure()
     {
         
-        for(int i =0; i < width; i++)
+        for (int i =0; i < width; i++)
         {
-           if(Grid[19,i] != null)
+           if (Grid[19,i] != null)
             {
                 return true;
             }
@@ -345,15 +292,13 @@ public class GroupMove : MonoBehaviour
         return false;
     }
 
-    void LoseMessage()
+    private void LoseMessage()
     {
         if (isFailure())
         {
             LoseMsg.text = "You Lose!";
             spawner.enabled = false;
             enabled = false;
-
         }
     }
-
 }

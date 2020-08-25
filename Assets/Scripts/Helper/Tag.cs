@@ -38,6 +38,5 @@ namespace Tag
     {
         public const string Next = "Next";
     }
-   
 }
 
